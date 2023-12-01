@@ -27,3 +27,14 @@ The pipeline deploys a Maven web application, with integration for Nexus, Sonarq
 6. **Deploy with Helm**: The application is deployed to OpenShift using Helm.
 7. **Health Check Probe**: The health of the application is checked.
 8. **Auto Rollback with Helm**: If the health check fails, the application is automatically rolled back to the previous stable version using Helm.
+
+### Convention
+Image:
+- `stable`: Stable version of well-health app
+- `latest`: Build with newest code, may not work correctly
+- `$hash ($githash + 'DDMMYYYY')`: Build with version 'X' pushed by `$githash`, may not work correctly
+
+Environment
+- Production: Full pipeline
+- Uat: Full pipeline
+- Dev: First 4 stages
