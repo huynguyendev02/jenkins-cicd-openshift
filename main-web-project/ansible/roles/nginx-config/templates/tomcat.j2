@@ -1,0 +1,15 @@
+server {
+    server_name  _;
+    index index.html index.htm;
+    access_log {{ LOG_NGINX }};
+    error_log  {{ ERROR_NGINX }} error;
+
+    location / {
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto http;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header Host $http_host;
+        proxy_pass {{ URL_NGINX }}:{{ PORT_NGINX }};
+        proxy_redirect off;
+    }
+}

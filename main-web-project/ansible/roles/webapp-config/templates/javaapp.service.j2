@@ -1,0 +1,14 @@
+[Unit]
+Description=JavaApp
+After=syslog.target network.target
+[Service]
+SuccessExitStatus=143
+User={{ DEPLOY_USER }}
+Group={{ DEPLOY_USER }}
+Type=simple
+Environment="JAVA_HOME={{ JAVA_HOME_WEB }}"
+WorkingDirectory={{ WORKING_DIR_ARTIFACT }}
+ExecStart={{ JAVA_HOME_WEB }}/bin/java -jar app.jar
+ExecStop=/bin/kill -15 $MAINPID
+[Install]
+WantedBy=multi-user.target

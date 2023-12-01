@@ -1,0 +1,13 @@
+- name: Config Nginx
+  hosts: nginx_web_app
+  become: yes
+  vars:
+    URL_NGINX: "http://127.0.0.1"
+    PORT_NGINX: "8080"
+    LOG_NGINX: "/var/log/nginx/tomcat.log"
+    ERROR_NGINX: "/var/log/nginx/tomcat-error.log"
+    DEPLOY_USER: "{{DEPLOY_USER}}"
+    
+  roles:
+    - role: docker
+    - role: nginx-config

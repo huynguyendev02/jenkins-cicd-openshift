@@ -1,0 +1,102 @@
+spec:
+  containers:
+  - name: jnlp
+    image: 10.98.86.99:8085/jenkins/inbound-agent:latest
+    volumeMounts:
+    - name: home-volume
+      mountPath: /home/jenkins
+    - name: jenkins-env
+      mountPath: /home/jenkins/jenkins-env
+    env:
+    - name: HOME
+      value: /home/jenkins
+  - name: maven
+    image: 10.98.86.99:8085/library/maven:3.9-ibm-semeru-17-focal
+    command:
+    - sleep
+    args: 
+    - 99d
+    volumeMounts:
+    - name: home-volume
+      mountPath: /home/jenkins
+    - name: m2-volume
+      mountPath: /home/jenkins/.m2
+    - name: settings-maven
+      mountPath: /home/jenkins/.settings
+    env:
+    - name: HOME
+      value: /home/jenkins
+    - name: MAVEN_OPTS
+      value: -Duser.home=/home/jenkins
+    - name: SONAR_TOKEN
+      valueFrom:
+        secretKeyRef:
+          name: sonar-token
+          key: SONAR_TOKEN
+  - name: kaniko
+    image: 10.98.86.99:8085/huyngyyendev/kaniko:debug
+    securityContext:
+      runAsUser: 0
+    command:
+    - sleep 
+    args: 
+    - 99d
+    volumeMounts:
+    - name: nexus-docker-cfg
+      mountPath: /kaniko/.docker
+
+
+  - name: helm
+    image: 10.98.86.99:8085/alpine/helm:3.13.0
+    command:
+    - sleep 
+    args: 
+    - 99d
+    volumeMounts:
+    - name: kube-config-secret
+      mountPath: /home/jenkins/.kubeconfig/auth/
+    env:
+    - name: KUBECONFIG
+      valueFrom:
+        configMapKeyRef:
+          name: kube-config      
+          key: KUBECONFIG
+
+  - name: bash
+    image: 10.98.86.99:8085/netdata/wget:latest
+    command:
+    - sleep 
+    args: 
+    - 99d
+
+  serviceAccountName : kaniko-sa
+
+  volumes:
+  - name: home-volume
+    emptyDir: {}
+  - name: m2-volume
+    persistentVolumeClaim:
+      claimName: m2-pvc
+  - name: settings-maven
+    configMap:
+      name: settings-maven
+  - name: jenkins-env
+    configMap:
+      name: jenkins-env
+  - name: nexus-docker-cfg
+    projected:
+      sources:
+      - secret:
+          name: nexus-docker-config
+          items:
+            - key: .dockerconfigjson
+              path: config.json
+  - name: kube-config-secret
+    projected:
+      sources:
+      - secret:
+          name: kube-config-secret
+          items:
+            - key: kubeconfig
+              path: kubeconfig
+              

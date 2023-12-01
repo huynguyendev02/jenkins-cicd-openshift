@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: m2-pv
+  namespace: huyng14
+spec:
+  storageClassName: m2
+  capacity:
+    storage: 1Gi
+  accessModes:
+    - ReadWriteMany
+  nfs:
+    path: "/opt/nfs-huyng14/.m2"
+    server: "10.98.218.202"

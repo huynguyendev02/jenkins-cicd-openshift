@@ -1,0 +1,14 @@
+- name: Config Nginx
+  hosts: nginx_web_app
+  become: yes
+  vars:
+    URL_NGINX: "http://127.0.0.1"
+    PORT_NGINX: "8080"
+    LOG_NGINX: "/var/log/nginx/tomcat.log"
+    ERROR_NGINX: "/var/log/nginx/tomcat-error.log"
+    WORKING_DIR_ARTIFACT: "{{WORKING_DIR_ARTIFACT}}"
+    JAVA_HOME_WEB: "/usr/lib/jvm/java-17-openjdk-amd64"
+    ARTIFACT_URL: "{{ARTIFACT_URL}}"
+  roles:
+    - role: webapp-config
+    - role: nginx-config

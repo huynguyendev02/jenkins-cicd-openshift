@@ -1,0 +1,377 @@
+credentials:
+  system:
+    domainCredentials:
+    - credentials:
+      - usernamePassword:
+          description: "nexuslogin"
+          id: "nexuslogin"
+          password: "{AQAAABAAAAAQbxoFvaVUryzKGJFzY0to2Gk6+Iuk38C6CD8/9k9pd0I=}"
+          scope: GLOBAL
+          username: "admin"
+      - usernamePassword:
+          description: "gitlablogin"
+          id: "gitlablogin"
+          password: "{AQAAABAAAAAQ0UFhXf/lCHNYb4IO+2EzAofjB8FmIMGuGFI5b2AVb5Y=}"
+          scope: GLOBAL
+          username: "huynguyendev02"
+      - gitLabApiTokenImpl:
+          apiToken: "{AQAAABAAAAAgPBKjVP4bz1UIe+S7iVMTEDuWQzCFxqlQIcdVv1r5d6MHYJys1qwo9EXdFQy90keM}"
+          description: "gitlab-token"
+          id: "gitlab-token"
+          scope: GLOBAL
+      - string:
+          description: "sonartoken"
+          id: "sonartoken"
+          scope: GLOBAL
+          secret: "{AQAAABAAAAAwKEJ1CtIaQ3YFA0hCq08libDjFGEQKJFTXw/RJVLZ/ki5Frbtf/O8BMSAGHrCPG4W9k1UmOxitV5FbRJBTBYYOA==}"
+      - basicSSHUserPrivateKey:
+          description: "nginx-server"
+          id: "nginx-server"
+          privateKeySource:
+            directEntry:
+              privateKey: "{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}"
+          scope: GLOBAL
+          username: "ubuntu"
+      - usernamePassword:
+          id: "ses-smtp-user.20230814-105654"
+          password: "{AQAAABAAAAAwVWqMwzWuT2WpgqLfDXUxuJKzhNq6dfQ/94CZct4XbtFg+o6GHcVJj7/fo9kVu2pwPA15D2eyqDQaoeJMSFH1Rw==}"
+          scope: GLOBAL
+          username: "AKIASUJ7DB6UGWYMZNEP"
+      - gitlabPersonalAccessToken:
+          description: "gitlab-pro"
+          id: "gitlab-pro"
+          scope: GLOBAL
+          token: "{AQAAABAAAAAgmojOKhqmNpv2YrKLQt/vV2kku5D264B6q+i/gdK0G1+/Pcqa4DvuijkmC1oTWq3Q}"
+jenkins:
+  agentProtocols:
+  - "JNLP4-connect"
+  - "Ping"
+  authorizationStrategy:
+    loggedInUsersCanDoAnything:
+      allowAnonymousRead: false
+  crumbIssuer:
+    standard:
+      excludeClientIPFromCrumb: true
+  disableRememberMe: false
+  disabledAdministrativeMonitors:
+  - "hudson.util.DoubleLaunchChecker"
+  labelAtoms:
+  - name: "built-in"
+  markupFormatter: "plainText"
+  mode: NORMAL
+  myViewsTabBar: "standard"
+  numExecutors: 2
+  primaryView:
+    all:
+      name: "all"
+  projectNamingStrategy: "standard"
+  quietPeriod: 5
+  remotingSecurity:
+    enabled: true
+  scmCheckoutRetryCount: 0
+  securityRealm:
+    local:
+      allowsSignup: false
+      enableCaptcha: false
+      users:
+      - id: "jenkins"
+        name: "jenkins"
+        properties:
+        - "apiToken"
+        - mailer:
+            emailAddress: "jenkins@jenkins.com"
+        - preferredProvider:
+            providerId: "default"
+        - "experimentalFlags"
+  slaveAgentPort: -1
+  updateCenter:
+    sites:
+    - id: "default"
+      url: "https://updates.jenkins.io/update-center.json"
+  views:
+  - all:
+      name: "all"
+  viewsTabBar: "standard"
+globalCredentialsConfiguration:
+  configuration:
+    providerFilter: "none"
+    typeFilter: "none"
+security:
+  apiToken:
+    creationOfLegacyTokenEnabled: false
+    tokenGenerationOnCreationEnabled: false
+    usageStatisticsEnabled: true
+  gitHooks:
+    allowedOnAgents: false
+    allowedOnController: false
+  gitHostKeyVerificationConfiguration:
+    sshHostKeyVerificationStrategy: "knownHostsFileVerificationStrategy"
+  sSHD:
+    port: -1
+unclassified:
+  ansiColorBuildWrapper:
+    colorMaps:
+    - black: "#000000"
+      blackB: "#4C4C4C"
+      blue: "#1E90FF"
+      blueB: "#4682B4"
+      cyan: "#00CDCD"
+      cyanB: "#00FFFF"
+      green: "#00CD00"
+      greenB: "#00FF00"
+      magenta: "#CD00CD"
+      magentaB: "#FF00FF"
+      name: "xterm"
+      red: "#CD0000"
+      redB: "#FF0000"
+      white: "#E5E5E5"
+      whiteB: "#FFFFFF"
+      yellow: "#CDCD00"
+      yellowB: "#FFFF00"
+    - black: "#000000"
+      blackB: "#555555"
+      blue: "#0000AA"
+      blueB: "#5555FF"
+      cyan: "#00AAAA"
+      cyanB: "#55FFFF"
+      defaultBackground: 0
+      defaultForeground: 7
+      green: "#00AA00"
+      greenB: "#55FF55"
+      magenta: "#AA00AA"
+      magentaB: "#FF55FF"
+      name: "vga"
+      red: "#AA0000"
+      redB: "#FF5555"
+      white: "#AAAAAA"
+      whiteB: "#FFFFFF"
+      yellow: "#AA5500"
+      yellowB: "#FFFF55"
+    - black: "black"
+      blackB: "black"
+      blue: "blue"
+      blueB: "blue"
+      cyan: "cyan"
+      cyanB: "cyan"
+      green: "green"
+      greenB: "green"
+      magenta: "magenta"
+      magentaB: "magenta"
+      name: "css"
+      red: "red"
+      redB: "red"
+      white: "white"
+      whiteB: "white"
+      yellow: "yellow"
+      yellowB: "yellow"
+    - black: "#2E3436"
+      blackB: "#2E3436"
+      blue: "#3465A4"
+      blueB: "#3465A4"
+      cyan: "#06989A"
+      cyanB: "#06989A"
+      defaultBackground: 0
+      defaultForeground: 7
+      green: "#4E9A06"
+      greenB: "#4E9A06"
+      magenta: "#75507B"
+      magentaB: "#75507B"
+      name: "gnome-terminal"
+      red: "#CC0000"
+      redB: "#CC0000"
+      white: "#D3D7CF"
+      whiteB: "#D3D7CF"
+      yellow: "#C4A000"
+      yellowB: "#C4A000"
+  buildDiscarders:
+    configuredBuildDiscarders:
+    - "jobBuildDiscarder"
+  buildStepOperation:
+    enabled: false
+  buildTimestamp:
+    enableBuildTimestamp: true
+    pattern: "yyMMdd"
+    timezone: "Etc/UTC"
+  email-ext:
+    adminRequiredForTemplateTesting: false
+    allowUnregisteredEnabled: false
+    charset: "UTF-8"
+    debugMode: false
+    defaultBody: |-
+      $PROJECT_NAME - Build # $BUILD_NUMBER - $BUILD_STATUS:
+
+      Check console output at $BUILD_URL to view the results.
+    defaultContentType: "text/plain"
+    defaultRecipients: "huyngyyendev@gmail.com"
+    defaultReplyTo: "huyngyyendev@gmail.com"
+    defaultSubject: "$PROJECT_NAME - Build # $BUILD_NUMBER - $BUILD_STATUS!"
+    defaultTriggerIds:
+    - "hudson.plugins.emailext.plugins.trigger.AlwaysTrigger"
+    mailAccount:
+      credentialsId: "ses-smtp-user.20230814-105654"
+      smtpHost: "email-smtp.us-east-1.amazonaws.com"
+      smtpPort: "2465"
+      useSsl: true
+      useTls: true
+    maxAttachmentSize: -1
+    maxAttachmentSizeMb: -1
+    precedenceBulk: false
+    watchingEnabled: false
+  enrichedSummaryConfig:
+    enrichedSummaryEnabled: false
+    httpClientDelayBetweenRetriesInSeconds: 1
+    httpClientMaxRetries: 3
+    httpClientTimeoutInSeconds: 1
+  fingerprints:
+    fingerprintCleanupDisabled: false
+    storage: "file"
+  gitHubConfiguration:
+    apiRateLimitChecker: ThrottleForNormalize
+  gitHubPluginConfig:
+    hookUrl: "http://3.87.208.60:8080/github-webhook/"
+  gitLabConnectionConfig:
+    connections:
+    - apiTokenId: "gitlab-token"
+      clientBuilderId: "autodetect"
+      connectionTimeout: 10
+      ignoreCertificateErrors: false
+      name: "gitlab-server"
+      readTimeout: 10
+      url: "https://gitlab.com/"
+    useAuthenticatedEndpoint: false
+  gitLabServers:
+    servers:
+    - credentialsId: "gitlab-pro"
+      manageWebHooks: true
+      name: "default"
+      serverUrl: "https://gitlab.com"
+  globalLibraries:
+    libraries:
+    - defaultVersion: "main"
+      implicit: true
+      name: "pipeline-scripted-library"
+      retriever:
+        modernSCM:
+          libraryPath: "./"
+          scm:
+            git:
+              credentialsId: "gitlablogin"
+              id: "f7451de6-e586-430e-bc45-32a213144c0b"
+              remote: "https://gitlab.com/jenkins-group6642934/pipeline-scripted-library"
+              traits:
+              - "gitBranchDiscovery"
+    - defaultVersion: "main"
+      name: "build-code-library"
+      retriever:
+        modernSCM:
+          libraryPath: "./"
+          scm:
+            git:
+              credentialsId: "gitlablogin"
+              id: "295bd0d4-3c1d-4682-a4a7-dc03e32079e6"
+              remote: "https://gitlab.com/jenkins-group6642934/build-code-library"
+              traits:
+              - "gitBranchDiscovery"
+    - defaultVersion: "main"
+      name: "scan-code-library"
+      retriever:
+        modernSCM:
+          libraryPath: "./"
+          scm:
+            git:
+              credentialsId: "gitlablogin"
+              id: "62ba3f03-2b58-495f-85ed-747271816bad"
+              remote: "https://gitlab.com/jenkins-group6642934/scan-code-library"
+              traits:
+              - "gitBranchDiscovery"
+    - defaultVersion: "main"
+      name: "deploy-app-library"
+      retriever:
+        modernSCM:
+          libraryPath: "./"
+          scm:
+            git:
+              credentialsId: "gitlablogin"
+              id: "384281ec-550d-4b71-8fc9-0dbb21581262"
+              remote: "https://gitlab.com/jenkins-group6642934/deploy-app-library"
+              traits:
+              - "gitBranchDiscovery"
+  globalTimeOutConfiguration:
+    operations:
+    - "abortOperation"
+    overwriteable: false
+  injectionConfig:
+    allowUntrusted: false
+    checkForBuildAgentErrors: false
+    enabled: false
+    enforceUrl: false
+    injectCcudExtension: false
+    injectMavenExtension: false
+  junitTestResultStorage:
+    storage: "file"
+  location:
+    adminAddress: "huyngyyendev@gmail.com"
+    url: "http://3.87.208.60:8080/"
+  mailer:
+    authentication:
+      password: "{AQAAABAAAAAwg3VDlQkARjAOYZANimOwKBWvIzLNtyZYhY3mGBM3nuvFTF2sLC9e2m7tjnGx578alRJBPy0UVkNmo5MYDKqu7w==}"
+      username: "AKIASUJ7DB6UAAUMJR2G"
+    charset: "UTF-8"
+    replyToAddress: "huyngyyendev@gmail.com"
+    smtpHost: "email-smtp.us-east-1.amazonaws.com"
+    smtpPort: "2465"
+    useSsl: true
+    useTls: true
+  mavenModuleSet:
+    localRepository: "default"
+  pollSCM:
+    pollingThreadCount: 10
+  scmGit:
+    addGitTagAction: false
+    allowSecondFetch: false
+    createAccountBasedOnEmail: false
+    disableGitToolChooser: false
+    hideCredentials: false
+    showEntireCommitSummaryInChanges: false
+    useExistingAccountWithSameEmail: false
+  sonarGlobalConfiguration:
+    buildWrapperEnabled: true
+    installations:
+    - credentialsId: "sonartoken"
+      name: "sonarserver"
+      serverUrl: "http://172.31.58.116:9000"
+      triggers:
+        skipScmCause: false
+        skipUpstreamCause: false
+  timestamper:
+    allPipelines: false
+    elapsedTimeFormat: "'<b>'HH:mm:ss.S'</b> '"
+    systemTimeFormat: "'<b>'HH:mm:ss'</b> '"
+tool:
+  git:
+    installations:
+    - home: "git"
+      name: "Default"
+  jdk:
+    installations:
+    - home: "/usr/lib/jvm/java-17-openjdk-amd64"
+      name: "JDK17"
+  maven:
+    installations:
+    - name: "MAVEN3"
+      properties:
+      - installSource:
+          installers:
+          - maven:
+              id: "3.9.4"
+  mavenGlobalConfig:
+    globalSettingsProvider: "standard"
+    settingsProvider: "standard"
+  sonarRunnerInstallation:
+    installations:
+    - name: "sonarscanner"
+      properties:
+      - installSource:
+          installers:
+          - sonarRunnerInstaller:
+              id: "4.8.0.2856"

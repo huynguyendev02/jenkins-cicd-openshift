@@ -1,0 +1,29 @@
+---
+# tasks file for docker
+- name: Curl Docker
+  get_url:
+    url: https://get.docker.com
+    dest: /opt/install-docker.sh
+    mode: "0777"
+- name: Install Docker
+  command: 
+    chdir: /opt
+    cmd: ./install-docker.sh 
+   
+- name: "Add user {{ DEPLOY_USER }} to Docker group"
+  user:
+    name: "{{ DEPLOY_USER }}"
+    groups: docker
+    append: yes
+- name: Config HTTP Request for Docker
+  ansible.builtin.template:
+    src: daemon.json.j2
+    dest: "/etc/docker/daemon.json"
+    owner: root
+    group: root
+    mode: '0644'
+- name: Start And Enable Docker
+  service:
+    name: docker
+    state: restarted
+    enabled: true

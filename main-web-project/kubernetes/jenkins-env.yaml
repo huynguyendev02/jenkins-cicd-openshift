@@ -1,0 +1,29 @@
+apiVersion: v1
+data:
+  Environment.groovy: "//Application Setting\r\nenv.APP_NAME = 'web-app-spring'\r\nenv.APP_TAG
+    = configEnvBasedOnBranch().get(1)\r\n//Deploy Server\r\nenv.PROD_IP = '52.90.239.128'\r\nenv.UAT_IP
+    = '35.175.254.125'\r\nenv.DEV_IP = '35.153.177.44'\r\n\r\nenv.DEPLOY_CREDENTIALS_ID
+    = 'nginx-server'\r\nenv.DEPLOY_IP = configEnvBasedOnBranch().get(2)\r\nenv.DEPLOY_USER
+    = 'ubuntu'\r\n\r\n//SonarQube\r\nenv.SCANNER_HOME =\"${tool 'sonarscanner'}\"\r\nenv.SONAR_SERVER
+    = 'sonarserver'\r\nenv.SONAR_PROJECT_NAME = 'sonar-web-app-spring'\r\n\r\n//Nexus\r\nenv.NEXUS_IP
+    = '172.31.57.240'\r\nenv.NEXUS_CREDENTIALS_ID = 'nexuslogin'\r\nenv.NEXUS_GROUP_ID
+    = 'ARTIFACTS'\r\nenv.NEXUS_DEFAULT_PORT = '8081'\r\nenv.RELEASE_REPO = 'web-app-spring-release'\r\nenv.UAT_REPO
+    = 'web-app-spring-uat'\r\nenv.DEV_REPO = 'web-app-spring-dev'\r\n\r\nenv.NEXUS_REPO_PUSH
+    = configEnvBasedOnBranch().get(0)\r\n\r\nenv.NEXUS_ARTIFACT_ID = 'web-app-spring'\r\n\r\nenv.NEXUS_DOCKER_PROD
+    = '8001'\r\nenv.NEXUS_DOCKER_UAT = '8002'\r\nenv.NEXUS_DOCKER_DEV = '8003'\r\nenv.NEXUS_DOCKER_PORT
+    = configEnvBasedOnBranch().get(3)\r\n\r\n//Docker\r\nenv.DOCKER_FILE = './docker/Dockerfile'\r\n\r\n//Artifact\r\nenv.WORKING_DIR_ARTIFACT
+    = '/home/ubuntu/'\r\nenv.ARTIFACT_URL = \"${env.NEXUS_IP}:${env.NEXUS_DEFAULT_PORT}/repository/${env.NEXUS_REPO_PUSH}/${env.NEXUS_GROUP_ID}/${env.NEXUS_ARTIFACT_ID}/${env.APP_TAG}/${env.APP_NAME}-${env.APP_TAG}.jar\"\r\n\r\ndef
+    configEnvBasedOnBranch() {\r\n    switch(env.BRANCH_NAME) {\r\n        case 'main':\r\n
+    \           return [env.RELEASE_REPO, \"${BUILD_TIMESTAMP}-${env.GIT_COMMIT}-RELEASE\",
+    env.PROD_IP, env.NEXUS_DOCKER_PROD]\r\n        case ~/(uat)(\\/)*((\\/)*\\w+)*/:\r\n
+    \           return [env.UAT_REPO, \"${BUILD_TIMESTAMP}-UAT-${env.GIT_COMMIT}\",
+    env.UAT_IP, env.NEXUS_DOCKER_UAT]\r\n        case ~/(dev)(\\/)*((\\/)*\\w+)*/:\r\n
+    \           return [env.DEV_REPO, \"${BUILD_TIMESTAMP}-DEV-${env.GIT_COMMIT}\",
+    env.DEV_IP, env.NEXUS_DOCKER_DEV]\r\n        default:\r\n            return ['dev',
+    'dev', 'dev','dev']\r\n        break\r\n    }\r\n}"
+kind: ConfigMap
+metadata:
+  creationTimestamp: null
+  name: jenkins-env
+  namespace: huyng14
+

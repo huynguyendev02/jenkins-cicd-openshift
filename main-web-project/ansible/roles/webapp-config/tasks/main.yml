@@ -1,0 +1,24 @@
+---
+# tasks file for webapp-config
+- name: Update and upgrade apt packages
+  apt:
+    upgrade: yes
+    update_cache: yes
+    cache_valid_time: 86400 #One day
+- name: Install JDK17
+  package:
+    name: openjdk-17-jdk
+    state: present
+- name: Pull Jar file from Nexus
+  ansible.builtin.get_url:
+    url: '{{ ARTIFACT_URL }}'
+    dest: '{{ WORKING_DIR_ARTIFACT }}/app.jar'
+- name: Template Service file to target
+  ansible.builtin.template:
+    src: javaapp.service.j2
+    dest: /etc/systemd/system/javaapp.service
+- name: Start and enable webapp
+  service:
+    name: javaapp
+    state: restarted
+    enabled: yes

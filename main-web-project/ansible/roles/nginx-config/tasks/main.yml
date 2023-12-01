@@ -1,0 +1,29 @@
+---
+# tasks file for nginx-config
+- name: Install nginx 
+  package:
+    name: nginx
+    state: present
+- name: Remove default site (nginx)
+  file:
+    name:  /etc/nginx/sites-enabled/default
+    state: absent
+
+- name: Remove default site (nginx)
+  file:
+    name:  /etc/nginx/sites-available/default
+    state: absent
+
+- name: Template configuration for tomcat server
+  ansible.builtin.template:
+    src: tomcat.j2
+    dest: /etc/nginx/sites-available/tomcat
+- name: Create symbolic link (nginx)
+  ansible.builtin.file:
+    src: /etc/nginx/sites-available/tomcat
+    dest: /etc/nginx/sites-enabled/tomcat
+    state: link
+- name: Restart Nginx
+  service:
+    name: nginx
+    state: restarted
